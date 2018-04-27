@@ -8,13 +8,21 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
-import { ExperiencesComponent } from './components/experiences/experiences.component';
 
+// components
+import { ExperiencesComponent } from './components/experiences/experiences.component';
+import { ExperienceListComponent } from './components/experiences/experience-list/experience-list.component';
+import { ExperienceComponent } from './components/experiences/experience/experience.component';
+
+// services
+import { ExperienceService } from './services/experience.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ExperiencesComponent
+    ExperiencesComponent,
+    ExperienceListComponent,
+    ExperienceComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +30,7 @@ import { ExperiencesComponent } from './components/experiences/experiences.compo
     AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [
+    ExperienceService
   ],
   bootstrap: [AppComponent]
 })
