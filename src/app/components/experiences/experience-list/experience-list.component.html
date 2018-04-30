@@ -1,3 +1,25 @@
-<p>
-  experience-list works!
-</p>
+<table class="table table-hover">
+  <tbody>
+    <tr *ngFor="let experience of experienceList">
+      <td>{{ experience.place }}</td>
+      <td>{{ experience.title }}</td>
+      <td>{{ experience.description }}</td>
+      <td>{{ experience.start_date }}</td>
+      <td>{{ experience.end_date }}</td>
+      <td>
+          <button 
+            class="btn btn-sm btn-secondary text-white"
+            (click)="onEdit(experience)"
+          >
+            <i class="fas fa-edit"></i>
+          </button>
+          <button 
+            class="btn btn-sm btn-danger text-white"
+            (click)="onDelete(experience.$key)"
+          >
+            <i class="fas fa-trash-alt"></i>
+          </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

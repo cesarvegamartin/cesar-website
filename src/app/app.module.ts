@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule} from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 
@@ -20,14 +24,17 @@ import { ExperienceService } from './services/experience.service';
 @NgModule({
   declarations: [
     AppComponent,
-    ExperiencesComponent,
+    ExperienceComponent,
     ExperienceListComponent,
-    ExperienceComponent
+    ExperiencesComponent
   ],
   imports: [
-    BrowserModule,
     AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    BrowserAnimationsModule,
+    BrowserModule,
+    FormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     ExperienceService

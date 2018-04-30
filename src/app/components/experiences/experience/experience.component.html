@@ -1,3 +1,88 @@
-<p>
-  experience works!
-</p>
+<form
+  class=""
+  #experienceForm="ngForm" 
+  (ngSubmit)="onSubmit(experienceForm)"
+>
+    <input 
+      type="hidden" 
+      name="$key" 
+      #$key="ngModel" 
+      [(ngModel)]="experienceService.selectedExperience.$key"
+    >
+
+    <!-- place of work -->
+    <div class="form-group">
+      <input 
+        type="text"
+        name="place"
+        class="form-control"
+        #place="ngModel"
+        [(ngModel)]="experienceService.selectedExperience.place"
+        placeholder="Place of work"
+      >
+    </div>
+
+    <!-- title of work -->
+    <div class="form-group">
+      <input 
+        type="text"
+        name="title"
+        class="form-control"
+        #title="ngModel"
+        [(ngModel)]="experienceService.selectedExperience.title"
+        placeholder="Title of work"
+      >
+    </div>
+
+    <!-- description of work -->
+    <div class="form-group">
+      <textarea 
+        name="description"
+        class="form-control"
+        #description="ngModel"
+        [(ngModel)]="experienceService.selectedExperience.description"
+        placeholder="Description of work"
+      >
+      </textarea>
+    </div>
+
+    <!-- start_date of work -->
+    <div class="form-group">
+      <input 
+        type="date"
+        name="start_date"
+        class="form-control"
+        #start_date="ngModel"
+        [(ngModel)]="experienceService.selectedExperience.start_date"
+        placeholder="start_date of work"
+      >
+    </div>
+
+    <!-- end_date of work -->
+    <div class="form-group">
+      <input 
+        type="date"
+        name="end_date"
+        class="form-control"
+        #end_date="ngModel"
+        [(ngModel)]="experienceService.selectedExperience.end_date"
+        placeholder="end_date of work"
+      >
+    </div>
+
+    <!-- save data -->
+    <div class="form-group">
+        <button 
+          type="submit"
+          class="btn btn-primary"> 
+            <i class="fas fa-plus-circle"></i> Send
+        </button>
+        <button 
+          type="reset"
+          class="btn btn-secondary"
+          (click)="resetForm(experienceForm)"> 
+            <i class="fas fa-sync-alt"></i> Reset
+        </button>
+    </div>
+
+</form>
